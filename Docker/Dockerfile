@@ -1,5 +1,5 @@
 # Utiliza una imagen base de Apache2
-FROM httpd:2.4
+FROM httpd:latest
 
 # Copia solo el contenido de la carpeta "Trabajo-practico-integrador-JS-Codo-a-Codo" al directorio de documentos de Apache2 en el contenedor
 COPY ./ /usr/local/apache2/htdocs
