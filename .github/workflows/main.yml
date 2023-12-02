@@ -27,7 +27,7 @@ jobs:
 
       # Add a step to scan with Trivy before pushing the image.
       - name: Scan Docker image with Trivy
-        uses: aquasec/trivy-action@v1
+        uses: aquasecurity/trivy-action@master
         with:
           image-ref: ${{ secrets.DOCKER_USERNAME }}/mi-web-apache2:${{ github.run_number }}
           #exit-code-on-severity: "HIGH"
