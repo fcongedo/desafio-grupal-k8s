@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Meta información del documento -->
+  <title>Codo a Codo tp integrador js</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Barra de navegación -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <!-- Contenedor de la barra de navegación -->
+    <div class="container">
+      <!-- Logo de la conferencia -->
+      <a class="navbar-brand" href="#"><img src="imagenes/codoacodo.png" alt="" width="100px" /></a>
+      <a class="navbar-brand" href="#">Conf Bs.As.</a>
+      <!-- Botón para alternar la navegación en pantallas pequeñas -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Contenido de la barra de navegación -->
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" href="#">La conferencia</a>
+          <a class="nav-link " href="#">Los oradores</a>
+          <a class="nav-link " href="#">El lugar y la fecha</a>
+          <a class="nav-link " href="#">Conviértete en orador</a>
+          <a class="nav-link active text-success" href="#">Comprar tickets</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contenedor principal -->
+  <div class="container-descuentos" id="categoria">
+    <!-- Categorías de tickets con descuento -->
+    <div class="categoria-container">
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <!-- Categoría "Estudiante" -->
+        <div class="card-categoria">
+          <div class="card-estudiante">
+            <div class="card-body">
+              <h5 class="card-title">Estudiante</h5>
+              <p class="card-text">Tienen un descuento</p>
+              <p class="card-porcentaje">80%</p>
+              <p> * presentar documentación</p>
+            </div>
+          </div>
+        </div>
+        <!-- Categoría "Trainee" -->
+        <div class="card-categoria">
+          <div class="card-trainee">
+            <div class="card-body">
+              <h5 class="card-title">Trainee</h5>
+              <p class="card-text">Tienen un descuento</p>
+              <p class="card-porcentaje">50%</p>
+              <p> * presentar documentación</p>
+            </div>
+          </div>
+        </div>
+        <!-- Categoría "Junior" -->
+        <div class="card-categoria">
+          <div class="card-junior">
+            <div class="card-body">
+              <h5 class="card-title">Junior</h5>
+              <p class="card-text">Tienen un descuento</p>
+              <p class="card-porcentaje">15%</p>
+              <p> * presentar documentación</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Información de venta de tickets -->
+    <p class="text-center mt-3 mb-0">VENTA</p>
+    <h2 class="text-center m-2 p-1 fw-semibold">VALOR DE TICKET $200</h2>
+    <!-- Formulario de compra de tickets -->
+    <form class="w-50  mx-auto">
+      <div class="row ">
+        <div class="col p-2">
+          <input type="text" class="form-control name" placeholder="Nombre" aria-label="First name" required>
+        </div>
+        <div class="col p-2">
+          <input type="text" class="form-control surname" placeholder="Apellido" aria-label="Last name" required>
+        </div>
+        <div class="row p-2 mx-auto">
+          <input type="text" class="form-control email" placeholder="Correo" aria-label="Mail" required>
+        </div>
+        <div class="col-md-6 p-2">
+          <label for="items" class="p-2">Cantidad</label>
+          <input type="text" class="form-control cantidad" placeholder="Cantidad" aria-label="Items" id="items"
+            required>
+        </div>
+        <div class="col-md-6 p-2">
+          <label for="select" class="p-2">Categoria</label>
+          <select class="form-select " aria-label="Default select example" id="select" required>
+            <option value="1">Estudiante</option>
+            <option value="2">Trainee</option>
+            <option value="3">Junior</option>
+          </select>
+        </div>
+        <div class="col-12 rounded mx-auto blue d-flex align-items-center">
+          <p class="p-2 m-0 total">Total a pagar: $</p>
+        </div>
+        <div class="col-md-6 p-2">
+          <input type="reset" class="btn btn-success green2 border-0 fw-bold w-100" value="Borrar">
+        </div>
+        <div class="col-md-6 p-2">
+          <input type="submit" class="btn btn-success green2 border-0 fw-bold w-100 resume" value="Resumen">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Pie de página -->
+<footer>
+  <nav class="navbar navbar-expand-lg navbar-light justify-content-center text-center navFooter">
+    <ul class="navbar-nav gap-5">
+      <li class="nav-item">
+        <a class="nav-link fs-6 text-white" href="#">Preguntas<br>Frecuentes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link fs-6 text-white" href="#">Contáctanos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link fs-6 text-white" href="#">Prensa</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link fs-6 text-white" href="#">Términos<br>y condiciones</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link fs-6 text-white" href="#">Privacidad</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link fs-6 text-white" href="#">Estudiantes</a>
+      </li>
+    </ul>
+  </nav>
+  <!-- Texto adicional en el footer -->
+  <div class="text-center text-white">
+    &copy; 2023 Codo a Codo. Todos los derechos reservados.
+  </div>
+</footer>
+
+<!-- Scripts al final del documento -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+  crossorigin="anonymous"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="script/script.js"></script>
+</body>
+</html>
