@@ -25,7 +25,6 @@ jobs:
       - name: Build Docker image
         run: docker build -t ${{ secrets.DOCKER_USERNAME }}/mi-web-apache2:${{ github.run_number }} ./Docker
 
-      # Add a step to scan with Trivy before pushing the image.
       - name: Scan Docker image with Trivy
         uses: aquasecurity/trivy-action@master
         with:
@@ -40,3 +39,24 @@ jobs:
 
       - name: Push Docker image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/mi-web-apache2:${{ github.run_number }}
+
+      - name: Test Docker image
+        run: |
+          docker pull ${{ secrets.DOCKER_USERNAME }}/mi-web-apache2:${{ github.run_number }}
+          docker run -d --name test-container -p 8080:80 ${{ secrets.DOCKER_USERNAME }}/mi-web-apache2:${{ github.run_number }}
+          sleep 10 # Time for the container to start properly
+
+          # Perform a curl to the web application page
+          curl_output=$(curl -s -o /dev/null -w '%{http_code}' http://localhost:8080/)
+          if [ "$curl_output" == "200" ]; then
+            echo "Test passed: Application is accessible"
+          else
+            echo "Test failed: Application is not accessible or did not return a 200 status code"
+            exit 1
+          fi
+
+          # Stop and remove the test container
+          docker stop test-container && docker rm test-container
+
+          # Remove the Docker image used for testing
+          docker image rm ${{ secrets.DOCKER_USERNAME }}/mi-web-apache2:${{ github.run_number }}
