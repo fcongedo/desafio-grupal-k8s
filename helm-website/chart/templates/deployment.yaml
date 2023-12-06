@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "chart.fullname" . }}
+  namespace: {{ .Values.namespace }}
+  labels:
+  {{- include "chart.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}  # El número de réplicas que necesites
+  selector:
+    matchLabels:
+    {{- include "chart.selectorLabels" . | nindent 6 }}
+  strategy:
+    type: RollingUpdate  # Estrategia de actualización
+    rollingUpdate:
+      maxSurge: 1  # Máximo de pods adicionales durante la actualización
+      maxUnavailable: 0  # Máximo de pods no disponibles durante la actualización
+  template:
+    metadata:
+      labels:
+    {{- include "chart.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        ports:
+        - containerPort: {{ .Values.container.port }}
