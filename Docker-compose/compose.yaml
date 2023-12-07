@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   mi-web:
-    image: fcongedo/mi-web-apache2:1.0
+    image: fcongedo/mi-web-apache2:5.0
     container_name: mi-web-compose
     ports:
       - "8082:80"
